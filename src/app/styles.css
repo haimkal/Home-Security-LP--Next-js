@@ -1,0 +1,9 @@
+.title {
+  font-size: 32px;
+  color: blue;
+}
+._cont {
+  max-width: 1140px;
+  display: block;
+  margin: auto;
+}

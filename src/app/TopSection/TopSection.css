@@ -1,0 +1,50 @@
+.top_section {
+  background-image: url(https://top10us.com/static/home-security-quote-long/assets/images/Security-usa-scaled-e1673434610464_1.webp);
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 450px;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  z-index: 1;
+  background-color: transparent;
+  background-image: linear-gradient(100deg, #fff 38%, #f2295b00 67%);
+  opacity: 1;
+  transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.top_section > :not(.overlay) {
+  z-index: 2;
+  position: relative;
+}
+
+.top_section .text_div {
+  width: 55%;
+  padding-top: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.text_div h1 {
+  color: #517d7b;
+  font-family: Almarai, Sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.2em;
+  margin: 27px 0px;
+}
+
+.top_section h2 {
+  color: #517d7b;
+  font-family: Poppins, Sans-serif;
+  font-size: 22px;
+  margin: 18px 0px;
+}
