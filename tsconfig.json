@@ -3,16 +3,18 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "esnext",
+      "es6"
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
     "noEmit": true,
     "incremental": true,
-    "module": "esnext",
+    "module": "ESNext",
     "esModuleInterop": true,
     "moduleResolution": "node",
+    "target": "ES6",
+    "strict": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",

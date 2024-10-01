@@ -5,6 +5,7 @@ import Header from "./Header/Header";
 import TopSection from "./TopSection/TopSection";
 import SecondSection from "./SecondSection/SecondSection";
 export default function Home() {
+  console.log("render page1");
   return (
     <>
       {/* <div className="header">

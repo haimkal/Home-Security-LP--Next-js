@@ -1,0 +1,148 @@
+/* SecondSection.css */
+.second-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-container {
+  position: relative;
+  background-color: white;
+  padding: 2rem;
+  margin: 1rem;
+  font-family: Poppins, sans-serif;
+  max-width: 100%;
+  width: 950px;
+  min-height: 500px;
+}
+#form {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.28);
+  z-index: 3;
+  width: calc(100% - 2rem);
+  margin: auto;
+  padding: 2rem;
+}
+
+/* .form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+} */
+
+.step-indicator {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.button-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: "1rem";
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.back-button,
+.next-button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.back-button {
+  background-color: #ccc;
+}
+
+.next-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.next-button:hover {
+  background-color: #0056b3;
+}
+
+.back-button:hover {
+  background-color: #999;
+}
+
+/* multipage design */
+
+/* Container for each form section */
+.form-section {
+  margin-bottom: 2rem;
+}
+
+/* Title styling */
+.form-title {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Property type options container */
+/* .options-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+  max-width: 100%;
+  gap: 1rem;
+}
+
+/* Style for each property option */
+/* .property-option {
+  cursor: pointer;
+  text-align: center;
+} */
+
+/* Hide the default radio button */
+/* .hidden-radio {
+  display: none;
+} */
+
+/* Image box styling */
+/* .img_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
+/* .img_box img {
+  margin-bottom: 0.5rem;
+} */
+
+.button-group button {
+  background: 0 0;
+  border-color: transparent;
+  color: #6b7280;
+  padding: 0;
+  max-width: max-content;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.button-group .next-step {
+  padding: 12px 30px;
+  border-radius: 5px;
+  background: #517d7b;
+  color: #fff;
+  margin: 0;
+  box-shadow: none;
+  border: 0;
+}

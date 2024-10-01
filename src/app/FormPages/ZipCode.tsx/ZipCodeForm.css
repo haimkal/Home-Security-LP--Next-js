@@ -1,0 +1,40 @@
+.zip-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step2 .zip-input {
+  position: relative;
+  padding: 14px 3rem 14px 16px !important;
+  border-radius: 8px;
+  border: 1px solid #bbbcbc;
+  transition: 0.3s;
+  outline: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  font-size: 16px !important;
+  font-weight: 600;
+  flex: 1;
+  max-width: 100%;
+  min-width: 350px;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 600px) {
+  .step2 .zip-input {
+    min-width: 280px;
+  }
+}
+.zip-icon {
+  position: absolute;
+  top: 27%;
+  left: 65%;
+}
+@media only screen and (max-width: 600px) {
+  .zip-icon {
+    position: absolute;
+    top: 32%;
+    left: 72%;
+  }
+}

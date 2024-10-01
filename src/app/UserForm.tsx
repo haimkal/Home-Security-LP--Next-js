@@ -8,6 +8,7 @@ type UserData = {
 
 type UserFormProps = UserData & {
   updateFields: (fields: Partial<UserData>) => void;
+  btnsDisplay: () => void;
 };
 
 export function UserForm({ firstName, lastName, age, updateFields }: UserFormProps) {
