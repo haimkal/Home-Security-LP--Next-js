@@ -33,6 +33,7 @@ export function RadioBtns({
   addQuestion, // Optional prop
 }: RadioBtnsProps) {
   const previousValueRef = useRef<string | null>(null);
+
   useEffect(() => {
     btnsDisplay(!autoNext);
   }, [btnsDisplay, autoNext]);
@@ -41,6 +42,7 @@ export function RadioBtns({
     if (autoNext && value !== previousValueRef.current && previousValueRef.current !== null) {
       nextStep();
     }
+
     previousValueRef.current = value;
   }, [value, autoNext, nextStep]);
 
@@ -61,6 +63,7 @@ export function RadioBtns({
               value={option.value}
               checked={value === option.value}
               onChange={handleChange}
+              onClick={nextStep} // what do you think of that?
               className="hidden-radio"
             />
             {isSquarePanel ? (

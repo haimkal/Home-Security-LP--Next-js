@@ -1,5 +1,16 @@
 import { ReactElement, useState } from "react";
-export function useMultistepForm(steps: ReactElement[]) {
+
+type UseMultistepFormReturn = {
+  currentStepIndex: number;
+  step: ReactElement;
+  isFirstStep: boolean;
+  isLastStep: boolean;
+  goTo: (index: number) => void;
+  next: (validate?: () => boolean) => void;
+  back: () => void;
+  steps: ReactElement[];
+};
+export function useMultistepForm(steps: ReactElement[]): UseMultistepFormReturn {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
 
   function next() {

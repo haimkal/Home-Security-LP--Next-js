@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import "./RadioBtns.css";
+import { useEffect } from "react";
+import "./CheckBox.css";
 
 type Option = {
   label: string;
@@ -7,14 +7,12 @@ type Option = {
 };
 
 type CheckBoxProps = {
-  updateFields: (fields: Partial<{ [key: string]: string }>) => void;
+  updateFields: (fields: Partial<{ [key: string]: string[] }>) => void;
   btnsDisplay: (show: boolean) => void;
   question: string;
   fieldName: string;
-  value: string;
+  values: string[];
   options: Option[];
-  autoNext?: boolean;
-  nextStep?: () => void;
   addQuestion?: React.ReactNode;
 };
 
@@ -23,37 +21,38 @@ export function CheckBox({
   btnsDisplay,
   question,
   fieldName,
-  value,
+  values,
   options,
-  addQuestion, // Optional prop
 }: CheckBoxProps) {
   useEffect(() => {
     btnsDisplay(true);
   }, [btnsDisplay]);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    updateFields({ [fieldName]: e.target.value });
+    const value = e.target.value;
+    const updatedValues = e.target.checked ? [...values, value] : values.filter((v) => v !== value);
+    updateFields({ [fieldName]: updatedValues });
   }
 
   return (
-    <div className="form-section step1">
+    <div className="form-section">
       {/* <h5>Quick and easy. Get matched with the best Home Security company in your area</h5> */}
       <h4 className="form-title">{question}</h4>
       <div className="options-div">
         {options.map((option, index) => (
-          <label key={index} className="check-box">
+          <label key={index} className="checkbox-btn">
             <input
               type="checkbox"
               name={fieldName}
               value={option.value}
-              checked={value === option.value}
+              checked={values.includes(option.value)}
               onChange={handleChange}
-              className="hidden-radio"
+              className="hidden-checkbox"
             />
+            <span>{option.label}</span>
           </label>
         ))}
       </div>
-      {addQuestion && <div className="additional-question">{addQuestion}</div>}
     </div>
   );
 }

@@ -1,19 +1,19 @@
 "use client";
 import { useState, useEffect } from "react";
-import { PropertyTypeForm } from "../FormPages/PropertyType/PropertyTypeForm";
-import { UserForm } from "../userForm";
-import { AddressForm } from "../AddressForm";
 import { useMultistepForm } from "../useMultiplestepForm";
+import { FormSteps } from "../PagesQuestionType/FormSteps"; // Import the formSteps
+
 import "./SecondSession.css"; // Import the CSS file
-import { ZipCodeForm } from "../FormPages/ZipCode.tsx/ZipCodeForm";
-import { OpenQuestion } from "../PagesQuestionType/OpenQuestion/OpenQuestion";
-import { RadioBtns } from "../PagesQuestionType/RadioBtns/RadioBtns";
 
 type FormData = {
   propertyType: string;
   zipCode: string;
   installPref: string;
   firstName: string;
+  securityFeatures: string[];
+  systemType: string;
+  streetAddress: string;
+  city: string;
 };
 
 const INITIAL_DATA: FormData = {
@@ -21,20 +21,27 @@ const INITIAL_DATA: FormData = {
   zipCode: "",
   installPref: "",
   firstName: "",
+  securityFeatures: [],
+  systemType: "",
+  streetAddress: "",
+  city: "",
 };
 export default function SecondSection() {
-  console.log("render second section");
-
   const [data, setData] = useState(INITIAL_DATA);
   const [showBtns, setShowBtns] = useState(false);
   const [steps, setSteps] = useState<React.ReactElement[]>([]);
-  // console.log("data from state: ", data);
+  const [isInputValid, setIsInputValid] = useState(false);
+  console.log("data from state: ", data);
 
   function updateFields(fields: Partial<FormData>) {
-    // if (fields["propertyType"]) next();
     setData((prev) => {
       return { ...prev, ...fields };
     });
+  }
+
+  function checkIfInputValid(isValid: boolean) {
+    // debugger;
+    setIsInputValid(isValid);
   }
 
   function btnsDisplay(bool: boolean) {
@@ -42,77 +49,16 @@ export default function SecondSection() {
   }
   const { currentStepIndex, step, isFirstStep, isLastStep, back, next } = useMultistepForm(steps);
   useEffect(() => {
-    setSteps([
-      <RadioBtns
-        updateFields={updateFields}
-        btnsDisplay={btnsDisplay}
-        question="What type of property is this system for?"
-        fieldName="propertyType"
-        value={data.propertyType}
-        options={[
-          {
-            label: "Owned",
-            value: "Owned",
-            imgSrc: "https://top10us.com/static/home-security-quote-long/assets/images/house.webp",
-          },
-          {
-            label: "Rented",
-            value: "Rented",
-            imgSrc: "https://top10us.com/static/home-security-quote-long/assets/images/key.webp",
-          },
-        ]}
-        isSquarePanel={true}
-        autoNext={true}
-        nextStep={next}
-        // addedHtml= '<div><input  </div>'
-        addQuestion={
-          <OpenQuestion
-            updateFields={updateFields}
-            btnsDisplay={btnsDisplay}
-            question="What is your first name?"
-            fieldName="firstName"
-            value={data.firstName}
-            isZipCode={false}
-            autoNext={false}
-          />
-        }
-      />,
-      <OpenQuestion
-        // numOfInput = {}
-        // few inputs of different kinds
-        updateFields={updateFields}
-        btnsDisplay={btnsDisplay}
-        question="What is your ZIP code?"
-        fieldName="zipCode"
-        value={data.zipCode}
-        isZipCode={true}
-        autoNext={false}
-      />,
-      <RadioBtns
-        updateFields={updateFields}
-        btnsDisplay={btnsDisplay}
-        question="What is your installation preference?"
-        fieldName="installPref"
-        value={data.installPref}
-        options={[
-          {
-            label: "Professional Installation",
-            value: "Professional Installation",
-          },
-          {
-            label: "Self-installation",
-            value: "Self-installation",
-          },
-        ]}
-        isSquarePanel={false}
-      />,
-    ]);
+    setSteps(FormSteps(updateFields, btnsDisplay, data, next, checkIfInputValid));
   }, [data]);
 
   function onSubmit(e: FormEvent) {
     e.preventDefault();
-    if (!isLastStep) return next();
-    alert("Successful Account Creation!"); // fetch can go here
+    if (!isLastStep && isInputValid) {
+      return next();
+    } else if (isLastStep) {
+      alert("Successful Account Creation!"); // fetch can go here
+    } else return;
   }
   return (
     <div className="second-section">
@@ -123,18 +69,18 @@ export default function SecondSection() {
           </div>
           {step}
           <div className="for_step_actions">
-            {showBtns && (
-              <div className="button-group">
+            <div className="button-group">
+              {showBtns && (
                 <button type="submit" className="next-step">
                   {isLastStep ? "Finish" : "Next"}
                 </button>
-                {!isFirstStep && (
-                  <button type="button" className="prev-step" onClick={back}>
-                    Previous
-                  </button>
-                )}
-              </div>
-            )}
+              )}
+              {!isFirstStep && (
+                <button type="button" className="prev-step" onClick={back}>
+                  Previous
+                </button>
+              )}
+            </div>
           </div>
         </form>
       </div>
