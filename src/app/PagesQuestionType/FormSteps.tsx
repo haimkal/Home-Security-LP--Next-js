@@ -112,13 +112,22 @@ export const FormSteps = (updateFields, btnsDisplay, data, next, checkIfInputVal
   <OpenQuestion
     updateFields={updateFields}
     btnsDisplay={btnsDisplay}
-    question="Where is your home located?"
+    question="What is your address?"
     label="Street Address"
-    fieldName="streetAddress"
+    fieldName="address"
     value={data.streetAddress}
     isZipCode={false}
     autoNext={false}
     nextStep={next}
-    addInputs={[{ label: "City", type: "text", fieldName: "city", value: data.city }]}
+    labelInputDirection="column"
+    addInputs={[
+      {
+        label: "City",
+        type: "text",
+        fieldName: "city",
+        value: data.city,
+        labelInputDirection: "column",
+      },
+    ]}
   />,
 ];

@@ -1,8 +1,8 @@
-.open-question-div {
+/* .open-question-div {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
 .open-question-input {
   padding: 14px 3rem 14px 16px !important;
@@ -101,4 +101,33 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+/* address sepcific */
+.open-question-div.address-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 380px;
+  justify-content: space-between;
+  height: 10em;
+}
+
+/* added inputs design */
+.label-input-column {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.label-input-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.label-input-row .open-question-input {
+  margin-left: 10px;
 }

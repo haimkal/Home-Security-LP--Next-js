@@ -31,7 +31,7 @@ export default function SecondSection() {
   const [showBtns, setShowBtns] = useState(false);
   const [steps, setSteps] = useState<React.ReactElement[]>([]);
   const [isInputValid, setIsInputValid] = useState(false);
-  console.log("data from state: ", data);
+  // console.log("data from state: ", data);
 
   function updateFields(fields: Partial<FormData>) {
     setData((prev) => {
@@ -40,7 +40,6 @@ export default function SecondSection() {
   }
 
   function checkIfInputValid(isValid: boolean) {
-    // debugger;
     setIsInputValid(isValid);
   }
 
