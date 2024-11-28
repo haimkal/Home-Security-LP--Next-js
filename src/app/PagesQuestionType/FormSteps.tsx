@@ -1,8 +1,16 @@
 import { RadioBtns } from "./RadioBtns/RadioBtns";
 import { OpenQuestion } from "./OpenQuestion/OpenQuestion";
 import { CheckBox } from "./CheckBox/CheckBox";
+import { LoaderStep } from "./Loader/LoaderStep";
 
-export const FormSteps = (updateFields, btnsDisplay, data, next, checkIfInputValid) => [
+export const FormSteps = (
+  updateFields,
+  btnsDisplay,
+  data,
+  next,
+  checkIfInputValid,
+  fetchAndRedirect
+) => [
   <RadioBtns
     updateFields={updateFields}
     btnsDisplay={btnsDisplay}
@@ -30,11 +38,16 @@ export const FormSteps = (updateFields, btnsDisplay, data, next, checkIfInputVal
     btnsDisplay={btnsDisplay}
     question="What is your ZIP code?"
     fieldName="zipCode"
-    value={data.zipCode}
     isZipCode={true}
-    autoNext={false}
-    nextStep={next}
     checkIfInputValid={checkIfInputValid}
+    openQuestions={[
+      {
+        type: "text",
+        fieldName: "zipCode",
+        value: data.zipCode,
+        labelInputDirection: "column",
+      },
+    ]}
   />,
   <RadioBtns
     updateFields={updateFields}
@@ -113,14 +126,15 @@ export const FormSteps = (updateFields, btnsDisplay, data, next, checkIfInputVal
     updateFields={updateFields}
     btnsDisplay={btnsDisplay}
     question="What is your address?"
-    label="Street Address"
-    fieldName="address"
-    value={data.streetAddress}
-    isZipCode={false}
-    autoNext={false}
-    nextStep={next}
-    labelInputDirection="column"
-    addInputs={[
+    generalFieldName="address"
+    openQuestions={[
+      {
+        label: "Street Address",
+        type: "text",
+        fieldName: "address",
+        value: data.address,
+        labelInputDirection: "column",
+      },
       {
         label: "City",
         type: "text",
@@ -130,4 +144,118 @@ export const FormSteps = (updateFields, btnsDisplay, data, next, checkIfInputVal
       },
     ]}
   />,
+  <OpenQuestion
+    updateFields={updateFields}
+    btnsDisplay={btnsDisplay}
+    question="Your details"
+    generalFieldName="userDetails"
+    tcpa="By clicking the 'Submit' button below, I agree that an ADT specialist may contact me from time to time via text messages or phone calls to the phone number provided by me using automated technology about ADT offers and consent is not required to make a purchase. Your information is collected and used in accordance with our privacy policy."
+    openQuestions={[
+      {
+        label: "First Name",
+        type: "text",
+        fieldName: "firstName",
+        value: data.firstName,
+        labelInputDirection: "column",
+        group: "sideBySide",
+      },
+      {
+        label: "Last Name",
+        type: "text",
+        fieldName: "lastName",
+        value: data.lastName,
+        labelInputDirection: "column",
+        group: "sideBySide",
+      },
+      {
+        label: "Email",
+        type: "text",
+        fieldName: "email",
+        value: data.email,
+        labelInputDirection: "column",
+        group: "stacked",
+      },
+      {
+        label: "Phone",
+        type: "text",
+        fieldName: "phone",
+        value: data.phone,
+        labelInputDirection: "column",
+        group: "stacked",
+      },
+    ]}
+  />,
+  // <OpenQuestion
+  //   updateFields={updateFields}
+  //   btnsDisplay={btnsDisplay}
+  //   question="Your life story"
+  //   generalFieldName="life"
+  //   openQuestions={[
+  //     {
+  //       label: "name",
+  //       type: "text",
+  //       fieldName: "name",
+  //       value: data.firstName,
+  //       labelInputDirection: "column",
+  //       group: "sideBySide",
+  //     },
+  //     {
+  //       label: "last",
+  //       type: "text",
+  //       fieldName: "last",
+  //       value: data.lastName,
+  //       labelInputDirection: "column",
+  //       group: "sideBySide",
+  //     },
+  //     {
+  //       label: "tell us about your self",
+  //       type: "text",
+  //       fieldName: "tell-us",
+  //       value: data.email,
+  //       labelInputDirection: "column",
+  //       group: "stacked",
+  //     },
+  //     {
+  //       label: "tell us about your experince with our product",
+  //       type: "text",
+  //       fieldName: "experience",
+  //       value: data.phone,
+  //       labelInputDirection: "column",
+  //       group: "stacked",
+  //     },
+  //     {
+  //       label: "zip",
+  //       type: "text",
+  //       fieldName: "zip",
+  //       value: data.email,
+  //       labelInputDirection: "column",
+  //       group: "sideBySide",
+  //     },
+  //     {
+  //       label: "mobile",
+  //       type: "text",
+  //       fieldName: "6",
+  //       value: data.phone,
+  //       labelInputDirection: "column",
+  //       group: "sideBySide",
+  //     },
+  //     {
+  //       label: "ts",
+  //       type: "text",
+  //       fieldName: "ts",
+  //       value: data.email,
+  //       labelInputDirection: "row",
+  //       group: "sideBySide",
+  //     },
+  //     {
+  //       label: "snp",
+  //       type: "text",
+  //       fieldName: "snp",
+  //       value: data.phone,
+  //       labelInputDirection: "row",
+  //       group: "sideBySide",
+  //     },
+  //   ]}
+  // />,
+  <LoaderStep btnsDisplay={btnsDisplay} fetchAndRedirect={fetchAndRedirect} />,
 ];

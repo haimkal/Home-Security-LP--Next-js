@@ -1,9 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useMultistepForm } from "../useMultiplestepForm";
-import { FormSteps } from "../PagesQuestionType/FormSteps"; // Import the formSteps
+import { useMultistepForm } from "../../useMultiplestepForm";
+import { FormSteps } from "../../PagesQuestionType/FormSteps"; // Import the formSteps
 
-import "./SecondSession.css"; // Import the CSS file
+import "./FormSession.css"; // Import the CSS file
 
 type FormData = {
   propertyType: string;
@@ -12,7 +12,7 @@ type FormData = {
   firstName: string;
   securityFeatures: string[];
   systemType: string;
-  streetAddress: string;
+  address: string;
   city: string;
 };
 
@@ -23,15 +23,15 @@ const INITIAL_DATA: FormData = {
   firstName: "",
   securityFeatures: [],
   systemType: "",
-  streetAddress: "",
+  address: "",
   city: "",
 };
-export default function SecondSection() {
+export default function FormSection() {
   const [data, setData] = useState(INITIAL_DATA);
   const [showBtns, setShowBtns] = useState(false);
   const [steps, setSteps] = useState<React.ReactElement[]>([]);
   const [isInputValid, setIsInputValid] = useState(false);
-  // console.log("data from state: ", data);
+  console.log("data from state: ", data);
 
   function updateFields(fields: Partial<FormData>) {
     setData((prev) => {
@@ -48,15 +48,19 @@ export default function SecondSection() {
   }
   const { currentStepIndex, step, isFirstStep, isLastStep, back, next } = useMultistepForm(steps);
   useEffect(() => {
-    setSteps(FormSteps(updateFields, btnsDisplay, data, next, checkIfInputValid));
+    setSteps(FormSteps(updateFields, btnsDisplay, data, next, checkIfInputValid, fetchAndRedirect));
   }, [data]);
 
+  function fetchAndRedirect() {
+    alert("Successful Account Creation!");
+    props.history.replace("/home-security-thankyou/");
+  }
   function onSubmit(e: FormEvent) {
     e.preventDefault();
     if (!isLastStep && isInputValid) {
       return next();
     } else if (isLastStep) {
-      alert("Successful Account Creation!"); // fetch can go here
+      fetchAndRedirect(); // fetch can go here
     } else return;
   }
   return (
@@ -74,7 +78,7 @@ export default function SecondSection() {
                   {isLastStep ? "Finish" : "Next"}
                 </button>
               )}
-              {!isFirstStep && (
+              {!isFirstStep && !isLastStep && (
                 <button type="button" className="prev-step" onClick={back}>
                   Previous
                 </button>
