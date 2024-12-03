@@ -1,0 +1,16 @@
+.image-text-list {
+  display: flex;
+  gap: 1rem;
+  max-width: 870px;
+  margin: auto;
+}
+
+/* .image-text-list > div {
+  width: 33.3%;
+} */
+
+@media only screen and (max-width: 768px) {
+  .image-text-list {
+    display: block;
+  }
+}

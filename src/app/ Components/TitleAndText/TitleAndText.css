@@ -1,0 +1,17 @@
+.title-and-text-container h2 {
+  font-size: 28px;
+  color: #517d7b;
+  font-family: Poppins, Sans-serif;
+  text-align: center;
+  margin: 0.8em 0;
+}
+.title-and-text-container h3 {
+  color: #517d7b;
+  margin: 0.8em 0;
+  font-family: Poppins, Sans-serif;
+  text-align: center;
+}
+
+.title-and-text-container p {
+  margin: 1em 0;
+}

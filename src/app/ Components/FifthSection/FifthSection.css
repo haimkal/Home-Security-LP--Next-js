@@ -1,0 +1,21 @@
+.fifth-section {
+  background-color: #f7f5f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fifth-section .fifth-section-container {
+  max-width: 870px;
+  margin: auto;
+  min-height: 15em;
+  padding: 1rem;
+}
+.fifth-section h2 {
+  font-size: 28px;
+  color: #517d7b;
+  font-family: Poppins, Sans-serif;
+  text-align: center;
+  margin: 1em 0;
+}

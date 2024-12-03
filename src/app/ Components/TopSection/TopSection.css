@@ -1,5 +1,5 @@
 .top_section {
-  background-image: url(https://top10us.com/static/home-security-quote-long/assets/images/Security-usa-scaled-e1673434610464_1.webp);
+  /* background-image: url("/home-security/images/home-security-bg.webp"); */
   background-position: center left;
   background-repeat: no-repeat;
   background-size: cover;
@@ -27,13 +27,12 @@
 }
 
 .top_section .text_div {
-  width: 55%;
   padding-top: 3rem;
   position: relative;
   z-index: 2;
 }
 
-.text_div h1 {
+/* .text_div h1 {
   color: #517d7b;
   font-family: Almarai, Sans-serif;
   font-size: 40px;
@@ -47,4 +46,15 @@
   font-family: Poppins, Sans-serif;
   font-size: 22px;
   margin: 18px 0px;
+} */
+
+@media only screen and (max-width: 768px) {
+  .top_section .text_div {
+    width: 100% !important;
+    padding: 1rem;
+  }
+
+  .overlay {
+    background-image: linear-gradient(100deg, #fff 38%, #ffffffc4 67%);
+  }
 }

@@ -1,0 +1,18 @@
+.third-section {
+  background-color: #f7f5f1;
+  padding-top: 4rem;
+}
+.third-section p {
+  font-size: 20px;
+  line-height: 28px;
+  max-width: 700px;
+  margin: auto auto 2rem;
+  text-align: center;
+}
+.third-section h2 {
+  font-size: 28px;
+  color: #517d7b;
+  font-family: Poppins, Sans-serif;
+  text-align: center;
+  margin-bottom: 1em;
+}

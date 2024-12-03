@@ -1,0 +1,23 @@
+.list_text ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.list_text ul {
+  padding: 0;
+  list-style: none;
+  gap: 1rem;
+  font-size: 14px;
+}
+
+.aligned ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.column ul {
+  display: block;
+}

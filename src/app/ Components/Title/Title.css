@@ -1,0 +1,35 @@
+/* .title .large {
+  font-size: 40px;
+}
+
+.title .medium {
+  font-size: 28px;
+}
+
+.title .small {
+  font-size: 14px;
+} */
+.title {
+  font-family: Poppins, Sans-serif;
+  margin: 0.5em 0;
+}
+
+.large {
+  font-size: 2.5rem;
+}
+
+.medium {
+  font-size: 1.4rem;
+}
+
+.small {
+  font-size: 0.8rem;
+}
+
+.aligned {
+  text-align: center;
+}
+
+.not-aligned {
+  text-align: left;
+}

@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useMultistepForm } from "../../useMultiplestepForm";
 import { FormSteps } from "../../PagesQuestionType/FormSteps"; // Import the formSteps
+import CheckedItemsList from "../CheckedItemsList/CheckedItemsList";
 
 import "./FormSession.css"; // Import the CSS file
 
@@ -53,7 +54,7 @@ export default function FormSection() {
 
   function fetchAndRedirect() {
     alert("Successful Account Creation!");
-    props.history.replace("/home-security-thankyou/");
+    // props.history.replace("/home-security-thankyou/");
   }
   function onSubmit(e: FormEvent) {
     e.preventDefault();
@@ -67,9 +68,9 @@ export default function FormSection() {
     <div className="second-section">
       <div className="form-container">
         <form id="form" onSubmit={onSubmit}>
-          <div className="step-indicator">
+          {/* <div className="step-indicator">
             {currentStepIndex + 1}/{steps.length}
-          </div>
+          </div> */}
           {step}
           <div className="for_step_actions">
             <div className="button-group">
@@ -86,6 +87,25 @@ export default function FormSection() {
             </div>
           </div>
         </form>
+
+        <div className="section_under_form">
+          <CheckedItemsList
+            items={[
+              "Fire Protection",
+              "Video Surveillance",
+              "Smart Alarm Systems",
+              "24/7 Monitoring",
+            ]}
+            isAligned={true}
+          />
+          <p className="green_text">
+            The opinions and the prices we represent on our site(s) are subject to change without
+            notice. We are an independent, advertising-supported comparison service. The offers that
+            appear on this site are from companies that compensate us. This compensation may impact
+            how and where products appear on this site, including, for example, the order in which
+            they may appear within the listing categories.
+          </p>
+        </div>
       </div>
     </div>
   );
