@@ -1,12 +1,12 @@
-import Title from "../Title/Title";
+import Title from "../../Generic/Title/Title";
 import "./TopSection.css";
 
 type TopSectionProps = {
-  bgImgName: string,
-  isBgTransparent?: boolean,
-  title: string,
-  subTitle: string,
-  titlesLayoutWidth?: string,
+  bgImgName: string;
+  isBgTransparent?: boolean;
+  title: string;
+  subTitle: string;
+  titlesLayoutWidth?: string;
 };
 
 export default function TopSection({
