@@ -10,7 +10,7 @@ export default function Footer() {
               decoding="async"
               width="170"
               height="50"
-              src="top10us.svg"
+              src="/top10us.svg"
               alt="logo"
             />
           </a>

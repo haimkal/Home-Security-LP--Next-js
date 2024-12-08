@@ -1,6 +1,6 @@
 import "./FifthSection.css";
-import CheckedItemsList from "../CheckedItemsList/CheckedItemsList";
-import ButtonToForm from "../ButtonToForm/ButtonToForm";
+import CheckedItemsList from "../../Generic/CheckedItemsList/CheckedItemsList";
+import ButtonToForm from "../../Generic/ButtonToForm/ButtonToForm";
 
 export default function FifthSection() {
   return (

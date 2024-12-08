@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useMultistepForm } from "../../useMultiplestepForm";
-import { FormSteps } from "../../PagesQuestionType/FormSteps"; // Import the formSteps
+import { useMultistepForm } from "../../../useMultiplestepForm";
+import { FormSteps } from "../../../PagesQuestionType/FormSteps"; // Import the formSteps
 import CheckedItemsList from "../CheckedItemsList/CheckedItemsList";
 
 import "./FormSession.css"; // Import the CSS file
@@ -47,9 +47,19 @@ export default function FormSection() {
   function btnsDisplay(bool: boolean) {
     setShowBtns(bool);
   }
-  const { currentStepIndex, step, isFirstStep, isLastStep, back, next } = useMultistepForm(steps);
+  const { currentStepIndex, step, isFirstStep, isLastStep, back, next } =
+    useMultistepForm(steps);
   useEffect(() => {
-    setSteps(FormSteps(updateFields, btnsDisplay, data, next, checkIfInputValid, fetchAndRedirect));
+    setSteps(
+      FormSteps(
+        updateFields,
+        btnsDisplay,
+        data,
+        next,
+        checkIfInputValid,
+        fetchAndRedirect
+      )
+    );
   }, [data]);
 
   function fetchAndRedirect() {
@@ -99,11 +109,13 @@ export default function FormSection() {
             isAligned={true}
           />
           <p className="green_text">
-            The opinions and the prices we represent on our site(s) are subject to change without
-            notice. We are an independent, advertising-supported comparison service. The offers that
-            appear on this site are from companies that compensate us. This compensation may impact
-            how and where products appear on this site, including, for example, the order in which
-            they may appear within the listing categories.
+            The opinions and the prices we represent on our site(s) are subject
+            to change without notice. We are an independent,
+            advertising-supported comparison service. The offers that appear on
+            this site are from companies that compensate us. This compensation
+            may impact how and where products appear on this site, including,
+            for example, the order in which they may appear within the listing
+            categories.
           </p>
         </div>
       </div>

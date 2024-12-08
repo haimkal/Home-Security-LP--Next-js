@@ -21,12 +21,12 @@ export const FormSteps = (
       {
         label: "Owned",
         value: "Owned",
-        imgSrc: "home-security/images/house.webp",
+        imgSrc: "/home-security/images/house.webp",
       },
       {
         label: "Rented",
         value: "Rented",
-        imgSrc: "home-security/images/key.webp",
+        imgSrc: "/home-security/images/key.webp",
       },
     ]}
     isSquarePanel={true}

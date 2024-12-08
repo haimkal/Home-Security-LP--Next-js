@@ -1,6 +1,6 @@
-import TitleAndText from "../TitleAndText/TitleAndText";
+import TitleAndText from "../../Generic/TitleAndText/TitleAndText";
 import "./FourthSection.css";
-import CheckedItemsList from "../CheckedItemsList/CheckedItemsList";
+import CheckedItemsList from "../../Generic/CheckedItemsList/CheckedItemsList";
 
 export default function FourthSection() {
   return (
