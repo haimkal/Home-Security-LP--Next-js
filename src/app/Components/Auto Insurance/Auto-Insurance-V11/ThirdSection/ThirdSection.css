@@ -1,0 +1,26 @@
+.auto-insurance-v11 .third-section {
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-block: 3rem;
+  padding: 1rem;
+  font-family: Poppins, Sans-serif;
+}
+.auto-insurance-v11 .third-section img{
+  align-self: center;
+  max-width: 300px;
+}
+.auto-insurance-v11 .third-section p {
+  font-size: 16px;
+  line-height: 24px;
+  max-width: 700px;
+  margin: auto auto 2rem;
+  margin-block: 16px;
+}
+.auto-insurance-v11 .third-section h2 {
+  font-size: 28px;
+  color: black !important;
+  margin-bottom: 1em;
+  font-weight: 800;
+}

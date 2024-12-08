@@ -24,7 +24,8 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/app/PagesQuestionType/utils/GoogleApi.js"
-, "src/app/pages/Auto-insurance-V11.js"  ],
+    "src/app/Components/Generic/PagesQuestionType/utils/GoogleApi.js",
+    "src/app/pages/Auto-insurance-V11.js"
+  ],
   "exclude": ["node_modules"]
 }
