@@ -5,8 +5,10 @@ import Header from "../../../Components/Generic/Header/Header";
 import Footer from "../../../Components/Generic/Footer/Footer";
 import TitleAndTextProps from "../../../Components/Generic/TitleAndText/TitleAndText";
 import FormSection from "../../../Components/Generic/FormSection/FormSection";
+import FirstSection from "../../../Components/Auto Insurance/Auto-Insurance-V11/FirstSection/FirstSection";
 
 export default function AutoInsurancePage() {
+
   return (
     <div className="auto-insurance-v11">
       <Header />
@@ -15,6 +17,7 @@ export default function AutoInsurancePage() {
         subTitle={"Answer a Few Questions and Get Quotes From Top Providers"}
       />
       <FormSection FormSteps={FormSteps}/>
+      <FirstSection />
       <SecondSection />
       <ThirdSection />
       <Footer />

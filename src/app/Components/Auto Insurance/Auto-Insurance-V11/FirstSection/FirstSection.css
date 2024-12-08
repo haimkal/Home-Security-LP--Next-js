@@ -1,0 +1,80 @@
+.first-section .flex {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.first-section .secured {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 14px;
+}
+
+.first-section .secured span:first-child a {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.first-section .secured img {
+  height: 1rem;
+}
+
+.first-section .available {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 0.5rem;
+}
+
+.first-section .online {
+  display: block;
+  width: 15px;
+  height: 15px;
+  background: #8bc34a;
+  border-radius: 50%;
+}
+
+.first-section h4 {
+  display: block;
+  margin-block-start: 4.33em;
+  margin-block-end: 1.33em;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.first-section h1 {
+  text-align: center;
+  font-weight: 700;
+  margin-top: 3rem;
+  font-size: 18px;
+  margin-block-end: 1.83em;
+}
+
+.first-section .image-text-list {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.first-section .image-text-list img {
+  width: 140px;
+  height: 50px;
+}
+.first-section .image-text-item:nth-child(1) img {
+  height: 30px;
+}
+.first-section .image-text-item:nth-child(2) img {
+  height: 40px;
+}
+.first-section .image-text-item:nth-child(3) img {
+  height: 80px;
+}
+.first-section .image-text-item:nth-child(4) img {
+  height: 86px;
+}
+

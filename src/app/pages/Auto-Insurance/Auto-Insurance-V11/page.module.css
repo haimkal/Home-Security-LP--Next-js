@@ -1,0 +1,23 @@
+/* .online span {
+  display: block;
+  width: 15px;
+  height: 15px;
+  background: #8BC34A;
+  border-radius: 50%;
+}
+
+.auto-insurance-v11 .image-text-list{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.auto-insurance-v11 img {
+  width: 140px;
+    aspect-ratio: auto 140 / 40;
+    height: 40px;
+} */
