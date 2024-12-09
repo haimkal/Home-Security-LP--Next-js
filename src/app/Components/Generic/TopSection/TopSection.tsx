@@ -1,8 +1,14 @@
 import Title from "../../Generic/Title/Title";
 import "./TopSection.css";
+/**
+ * The name of the vertical and page, formatted in "Capital-Dash" style.
+ * Example: "Home-Security" and "Home-Security-Quote-Long"
+ */
 
 type TopSectionProps = {
-  bgImgName: string;
+  bgImgName?: string;
+  verticalName?: string;
+  pageName?: string;
   isBgTransparent?: boolean;
   title: string;
   subTitle: string;
@@ -10,7 +16,9 @@ type TopSectionProps = {
 };
 
 export default function TopSection({
-  bgImgName,
+  bgImgName = "",
+  verticalName = "",
+  pageName = "",
   isBgTransparent = false,
   title,
   subTitle,
@@ -19,7 +27,9 @@ export default function TopSection({
   return (
     <div
       className="top_section"
-      style={{ backgroundImage: `url("/Home Security/Home-Security-Quote-Long/images/${bgImgName}")` }}
+      style={{
+        backgroundImage: `url("/${verticalName}/${pageName}/images/${bgImgName}")`,
+      }}
     >
       {isBgTransparent && <div className="overlay"></div>}
       <div className="_cont">
