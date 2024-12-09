@@ -10,33 +10,6 @@ import FifthSection from "../../../Components/Home Security/Home-Security-Quote-
 import Footer from "../../../Components/Generic/Footer/Footer";
 import { FormSteps } from "../../../Components/Home Security/Home-Security-Quote-Long/FormSteps/FormSteps"; // Import the formSteps
 
-// export type FormData = {
-//   propertyType: string;
-//   zipCode: string;
-//   installPref: string;
-//   firstName: string;
-//   lastName: string;
-//   email: string;
-//   phone: string;
-//   securityFeatures: string[];
-//   systemType: string;
-//   address: string;
-//   city: string;
-// };
-
-// const INITIAL_DATA: FormData = {
-//   propertyType: "",
-//   zipCode: "",
-//   installPref: "",
-//   firstName: "",
-//   lastName: "",
-//   email: "",
-//   phone: "",
-//   securityFeatures: [],
-//   systemType: "",
-//   address: "",
-//   city: "",
-// };
 export default function Home() {
   return (
     <>
