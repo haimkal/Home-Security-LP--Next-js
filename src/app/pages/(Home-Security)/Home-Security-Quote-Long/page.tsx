@@ -9,6 +9,7 @@ import FourthSection from "../../../Components/Home Security/Home-Security-Quote
 import FifthSection from "../../../Components/Home Security/Home-Security-Quote-Long/FifthSection/FifthSection";
 import Footer from "../../../Components/Generic/Footer/Footer";
 import { FormSteps } from "../../../Components/Home Security/Home-Security-Quote-Long/FormSteps/FormSteps"; // Import the formSteps
+import UnderFormSection from "../../../Components/Home Security/Home-Security-Quote-Long/UnderFormSection/UnderFormSection";
 
 export default function Home() {
   return (
@@ -21,7 +22,13 @@ export default function Home() {
           title={"Top Home Security Contractors - 2024"}
           subTitle={"Help Protect Your Home with a New Security System"}
         />
-        <FormSection<FormData> FormSteps={FormSteps} initialData={INITIAL_DATA} />
+        <FormSection<FormData>
+          FormSteps={FormSteps}
+          initialData={INITIAL_DATA}
+          optionalComponent={<UnderFormSection />}
+          isOffsetUp={true}
+          hasWhiteBackground={true}
+        />
         <ThirdSection />
         <FourthSection />
         <FifthSection />

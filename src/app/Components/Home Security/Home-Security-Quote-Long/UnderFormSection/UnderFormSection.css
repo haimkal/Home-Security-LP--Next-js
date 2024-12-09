@@ -1,0 +1,11 @@
+.section_under_form .green_text {
+  margin: 2rem 0 0;
+  background: #a8dadcba;
+  padding: 1rem;
+  border-radius: 0 0 1rem 1rem;
+  font-size: 14px;
+}
+
+.section_under_form {
+  margin-top: 3em;
+}

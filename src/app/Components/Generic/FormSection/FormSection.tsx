@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, ReactElement, FormEvent } from "react";
+import React, { useState, useEffect, ReactElement, FormEvent, ReactNode } from "react";
 import { useMultistepForm } from "../../../useMultiplestepForm";
 import "./FormSession.css";
 
@@ -16,9 +16,15 @@ type FormStepsType<T> = (
 export default function FormSection<T>({
   FormSteps,
   initialData,
+  optionalComponent = null,
+  isOffsetUp = false,
+  hasWhiteBackground = false,
 }: {
   FormSteps: FormStepsType<T>;
   initialData: T;
+  optionalComponent?: ReactNode;
+  isOffsetUp?: boolean;
+  hasWhiteBackground?: boolean;
 }) {
   const [data, setData] = useState(initialData);
   const [showBtns, setShowBtns] = useState(false);
@@ -60,8 +66,8 @@ export default function FormSection<T>({
   }
   return (
     <div className="second-section">
-      <div className="form-container">
-        <form id="form" onSubmit={onSubmit}>
+      <div className={`form-container ${hasWhiteBackground ? "white-background" : ""} `}>
+        <form id="form" className={`${isOffsetUp ? "offset-up" : ""}`} onSubmit={onSubmit}>
           {/* <div className="step-indicator">
             {currentStepIndex + 1}/{steps.length}
           </div> */}
@@ -81,6 +87,7 @@ export default function FormSection<T>({
             </div>
           </div>
         </form>
+        {optionalComponent}
       </div>
     </div>
   );

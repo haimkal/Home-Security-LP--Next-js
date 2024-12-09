@@ -11,8 +11,6 @@
 
 .form-container {
   position: relative;
-  /* background-color: white; */
-  background: #fff;
   /* padding: 2rem; */
   margin: 1rem;
   font-family: Poppins, sans-serif;
@@ -21,6 +19,11 @@
   /* min-height: 500px; */
   border-radius: 1rem;
 }
+
+.white-background {
+  background: #fff;
+}
+
 #form {
   /* display: flex;
   flex-direction: column;
@@ -33,8 +36,10 @@
   width: calc(100% - 2rem);
   margin: auto;
   padding: 2rem;
-  margin-top: -14rem;
   position: relative;
+}
+#form.offset-up {
+  margin-top: -14rem;
 }
 
 /* .form {
@@ -86,18 +91,6 @@
 
 .back-button:hover {
   background-color: #999;
-}
-
-.section_under_form .green_text {
-  margin: 2rem 0 0;
-  background: #a8dadcba;
-  padding: 1rem;
-  border-radius: 0 0 1rem 1rem;
-  font-size: 14px;
-}
-
-.section_under_form {
-  margin-top: 3em;
 }
 
 /* multipage form design */
