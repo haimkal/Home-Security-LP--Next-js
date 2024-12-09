@@ -1,10 +1,20 @@
 "use client";
 import { RadioBtns } from "../../../Generic/PagesQuestionType/RadioBtns/RadioBtns";
+import { FormData } from "../../../../../types/Home-Security-Types/quoteLongFormData";
 import { OpenQuestion } from "../../../Generic/PagesQuestionType/OpenQuestion/OpenQuestion";
 import { CheckBox } from "../../../Generic/PagesQuestionType/CheckBox/CheckBox";
 import { LoaderStep } from "../../../Generic/PagesQuestionType/Loader/LoaderStep";
 
-export const FormSteps = (
+type FormStepsType = (
+  updateFields: (fields: Partial<FormData>) => void,
+  btnsDisplay: (bool: boolean) => void,
+  data: FormData,
+  next: () => void,
+  checkIfInputValid: (isValid: boolean) => void,
+  fetchAndRedirect: () => void
+) => JSX.Element[];
+
+export const FormSteps: FormStepsType = (
   updateFields,
   btnsDisplay,
   data,
@@ -164,77 +174,6 @@ export const FormSteps = (
       },
     ]}
   />,
-  // <OpenQuestion
-  //   updateFields={updateFields}
-  //   btnsDisplay={btnsDisplay}
-  //   question="Your life story"
-  //   generalFieldName="life"
-  //   openQuestions={[
-  //     {
-  //       label: "name",
-  //       type: "text",
-  //       fieldName: "name",
-  //       value: data.firstName,
-  //       labelInputDirection: "column",
-  //       group: "sideBySide",
-  //     },
-  //     {
-  //       label: "last",
-  //       type: "text",
-  //       fieldName: "last",
-  //       value: data.lastName,
-  //       labelInputDirection: "column",
-  //       group: "sideBySide",
-  //     },
-  //     {
-  //       label: "tell us about your self",
-  //       type: "text",
-  //       fieldName: "tell-us",
-  //       value: data.email,
-  //       labelInputDirection: "column",
-  //       group: "stacked",
-  //     },
-  //     {
-  //       label: "tell us about your experince with our product",
-  //       type: "text",
-  //       fieldName: "experience",
-  //       value: data.phone,
-  //       labelInputDirection: "column",
-  //       group: "stacked",
-  //     },
-  //     {
-  //       label: "zip",
-  //       type: "text",
-  //       fieldName: "zip",
-  //       value: data.email,
-  //       labelInputDirection: "column",
-  //       group: "sideBySide",
-  //     },
-  //     {
-  //       label: "mobile",
-  //       type: "text",
-  //       fieldName: "6",
-  //       value: data.phone,
-  //       labelInputDirection: "column",
-  //       group: "sideBySide",
-  //     },
-  //     {
-  //       label: "ts",
-  //       type: "text",
-  //       fieldName: "ts",
-  //       value: data.email,
-  //       labelInputDirection: "row",
-  //       group: "sideBySide",
-  //     },
-  //     {
-  //       label: "snp",
-  //       type: "text",
-  //       fieldName: "snp",
-  //       value: data.phone,
-  //       labelInputDirection: "row",
-  //       group: "sideBySide",
-  //     },
-  //   ]}
-  // />,
+
   <LoaderStep btnsDisplay={btnsDisplay} fetchAndRedirect={fetchAndRedirect} />,
 ];

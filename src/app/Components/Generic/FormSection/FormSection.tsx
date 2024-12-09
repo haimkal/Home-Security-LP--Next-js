@@ -2,52 +2,31 @@
 
 import React, { useState, useEffect, ReactElement, FormEvent } from "react";
 import { useMultistepForm } from "../../../useMultiplestepForm";
-import CheckedItemsList from "../CheckedItemsList/CheckedItemsList";
-import "./FormSession.css"; // Import the CSS file
+import "./FormSession.css";
 
-type FormData = {
-  propertyType: string;
-  zipCode: string;
-  installPref: string;
-  firstName: string;
-  securityFeatures: string[];
-  systemType: string;
-  address: string;
-  city: string;
-};
-
-type FormStepsType = (
-  updateFields: any,
-  btnsDisplay: any,
-  data: any,
-  next: any,
-  checkIfInputValid: any,
-  fetchAndRedirect: any
+type FormStepsType<T> = (
+  updateFields: (fields: Partial<T>) => void,
+  btnsDisplay: (bool: boolean) => void,
+  data: T,
+  next: () => void,
+  checkIfInputValid: (isValid: boolean) => void,
+  fetchAndRedirect: () => void
 ) => JSX.Element[];
 
-const INITIAL_DATA: FormData = {
-  propertyType: "",
-  zipCode: "",
-  installPref: "",
-  firstName: "",
-  securityFeatures: [],
-  systemType: "",
-  address: "",
-  city: "",
-};
-export default function FormSection({
+export default function FormSection<T>({
   FormSteps,
+  initialData,
 }: {
-  FormSteps: FormStepsType;
+  FormSteps: FormStepsType<T>;
+  initialData: T;
 }) {
-
-  const [data, setData] = useState(INITIAL_DATA);
+  const [data, setData] = useState(initialData);
   const [showBtns, setShowBtns] = useState(false);
   const [steps, setSteps] = useState<React.ReactElement[]>([]);
   const [isInputValid, setIsInputValid] = useState(false);
   console.log("data from state: ", data);
 
-  function updateFields(fields: Partial<FormData>) {
+  function updateFields(fields: Partial<T>) {
     setData((prev) => {
       return { ...prev, ...fields };
     });
@@ -60,23 +39,11 @@ export default function FormSection({
   function btnsDisplay(bool: boolean) {
     setShowBtns(bool);
   }
- 
 
-  const { currentStepIndex, step, isFirstStep, isLastStep, back, next } =
-    useMultistepForm(steps);
+  const { currentStepIndex, step, isFirstStep, isLastStep, back, next } = useMultistepForm(steps);
 
   useEffect(() => {
-    setSteps(
-      // formSteps(
-      FormSteps(
-        updateFields,
-        btnsDisplay,
-        data,
-        next,
-        checkIfInputValid,
-        fetchAndRedirect
-      )
-    );
+    setSteps(FormSteps(updateFields, btnsDisplay, data, next, checkIfInputValid, fetchAndRedirect));
   }, [data]);
 
   function fetchAndRedirect() {
@@ -114,27 +81,6 @@ export default function FormSection({
             </div>
           </div>
         </form>
-
-        <div className="section_under_form">
-          <CheckedItemsList
-            items={[
-              "Fire Protection",
-              "Video Surveillance",
-              "Smart Alarm Systems",
-              "24/7 Monitoring",
-            ]}
-            isAligned={true}
-          />
-          <p className="green_text">
-            The opinions and the prices we represent on our site(s) are subject
-            to change without notice. We are an independent,
-            advertising-supported comparison service. The offers that appear on
-            this site are from companies that compensate us. This compensation
-            may impact how and where products appear on this site, including,
-            for example, the order in which they may appear within the listing
-            categories.
-          </p>
-        </div>
       </div>
     </div>
   );
