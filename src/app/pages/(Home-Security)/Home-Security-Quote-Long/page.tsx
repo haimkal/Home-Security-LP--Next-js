@@ -17,6 +17,8 @@ export default function Home() {
       <Header />
       <main className={styles.main}>
         <TopSection
+          verticalName="Home-Security"
+          pageName="Home-Security-Quote-Long"
           bgImgName="home-security-bg.webp"
           isBgTransparent={true}
           title={"Top Home Security Contractors - 2024"}

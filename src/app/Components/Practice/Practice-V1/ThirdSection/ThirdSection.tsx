@@ -4,7 +4,7 @@ import ImageTextList from "../../../Generic/ImageTextList/ImageTextList";
 export default function ThirdSection() {
   return (
     <div className="third-section">
-      <h2>How It works</h2>
+      <h2>Homw Warranty</h2>
       <p>
         Top10US.com service hundreds of brands and provides trusted information for millions of
         individuals across the United States

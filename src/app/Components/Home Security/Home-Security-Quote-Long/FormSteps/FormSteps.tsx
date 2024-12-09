@@ -31,12 +31,12 @@ export const FormSteps: FormStepsType = (
       {
         label: "Owned",
         value: "Owned",
-        imgSrc: "/Home Security/Home-Security-Quote-Long/images/house.webp",
+        imgSrc: "/Home-Security/Home-Security-Quote-Long/images/house.webp",
       },
       {
         label: "Rented",
         value: "Rented",
-        imgSrc: "/Home Security/Home-Security-Quote-Long/images/key.webp",
+        imgSrc: "/Home-Security/Home-Security-Quote-Long/images/key.webp",
       },
     ]}
     isSquarePanel={true}
